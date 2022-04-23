@@ -1909,6 +1909,14 @@ function Kavo.CreateLib(kavName, themeList)
                         UpdateSize()
                     end
                 end
+                function DropFunction:Clear(List)
+                    List = List or {}
+                    for i,v in next, dropFrame:GetChildren() do
+                        if v.Name == "optionSelect" then
+                            v:Destroy()
+                        end
+                    end
+                end
                 return DropFunction
             end
             function Elements:NewKeybind(keytext, keyinf, first, callback)
