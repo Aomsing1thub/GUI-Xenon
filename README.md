@@ -1807,7 +1807,7 @@ function Kavo.CreateLib(kavName, themeList)
                         end
                     end)()
                 end
-
+            end
                 function DropFunction:Refresh(newList)
                     newList = newList or {}
                     for i,v in next, dropFrame:GetChildren() do
@@ -1925,9 +1925,8 @@ function Kavo.CreateLib(kavName, themeList)
                             v:Destroy()
                         end
                     end
+		    return DropFunction
                 end
-                return DropFunction
-            end
             function Elements:NewKeybind(keytext, keyinf, first, callback)
                 keytext = keytext or "KeybindText"
                 keyinf = keyinf or "KebindInfo"
