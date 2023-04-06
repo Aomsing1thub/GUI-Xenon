@@ -118,13 +118,6 @@ local themeStyles = {
         Header = Color3.fromRGB(22, 29, 31),
         TextColor = Color3.fromRGB(255,255,255),
         ElementColor = Color3.fromRGB(22, 29, 31)
-    },
-    DGM = {
-        SchemeColor = Color3.fromRGB(0,255,255),
-        Background = Color3.fromRGB(0, 77, 77),
-        Header = Color3.fromRGB(0, 0, 0),
-        TextColor = Color3.fromRGB(255,255,0),
-        ElementColor = Color3.fromRGB(0,255,255)
     }
 }
 local oldTheme = ""
@@ -176,8 +169,6 @@ function Kavo.CreateLib(kavName, themeList)
         themeList = themeStyles.Synapse
     elseif themeList == "Serpent" then
         themeList = themeStyles.Serpent
-    elseif themeList == "DGM" then
-        themeList = themeStyles.DGM
     else
         if themeList.SchemeColor == nil then
             themeList.SchemeColor = Color3.fromRGB(74, 99, 135)
@@ -1807,7 +1798,7 @@ function Kavo.CreateLib(kavName, themeList)
                         end
                     end)()
                 end
-            end
+
                 function DropFunction:Refresh(newList)
                     newList = newList or {}
                     for i,v in next, dropFrame:GetChildren() do
@@ -1918,15 +1909,8 @@ function Kavo.CreateLib(kavName, themeList)
                         UpdateSize()
                     end
                 end
-                function DropFunction:Clear(List)
-                    List = List or {}
-                    for i,v in next, dropFrame:GetChildren() do
-                        if v.Name == "optionSelect" then
-                            v:Destroy()
-                        end
-                    end
-		    return DropFunction
-                end
+                return DropFunction
+            end
             function Elements:NewKeybind(keytext, keyinf, first, callback)
                 keytext = keytext or "KeybindText"
                 keyinf = keyinf or "KebindInfo"
